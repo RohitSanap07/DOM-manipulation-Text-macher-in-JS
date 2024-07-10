@@ -5,27 +5,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Text Matcher DOM Manipulation</title>
 <link href="style.css" rel="stylesheet" type="text/css">
-<script>
-  function matchText() {
-    var text = document.getElementById('originalText').textContent;
-    var pattern = document.getElementById('pattern').value;
-    var regex = new RegExp(pattern, 'gi');
-    var highlightedText = text.replace(regex, '<span class="highlight">$&</span>');
-    document.getElementById('highlightedText').innerHTML = highlightedText;
-  }
-</script>
 </head>
 <body>
- <center> <h2 class="heading1">Text Matcher</h2>
-  <label class="labels" for="pattern">Pattern to Match:</label>
-  <input type="text" id="pattern" placeholder="Find text to match"><br><br>
-  <button class="btn1" onclick="matchText()">Find Matches</button><br><br>
-  <div id="originalText">
-   <p class="paragraph">  Rohit Sharma<br>
-    Rohit Sharma is a prominent Indian cricketer who is widely regarded as one of the best opening batsmen in limited-overs cricket.<br>
-    He continues to be a key player for India across formats and a vital part of Mumbai Indians' success in the IPL.<br></p>
-    
-  </div><br><br>
-  <div id="highlightedText"></div></center>
+  
+<h1 class="heading1">Match the Text</h1>
+<div>
+<input class="input-text" type="text"/>
+<input class="input-text"  type="text"/>
+
+<p id="match-result-text"></p>
+</div>
+
+<script>
+    function compareText()
+    {
+const input1Element = document.getElementById("input 1")
+const input2Element = document.getElementById("input 2")
+
+const resultElement = document.getElementById("match-result-text")
+
+if(input1Element.value == input2Element.value){
+    resultElement.innerText = "Content Matched"
+    resultElement.style.color = "green"
+}
+else{
+    resultElement.innerText = "Content Not Matched"
+    resultElement.style.color = "red"
+}
+}
+</script>
+
 </body>
 </html>
